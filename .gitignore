@@ -1,0 +1,21 @@
+# Salvaguarda de privacidad: NUNCA versionar imágenes en este repo de anotaciones
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.webp
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# carpetas de imágenes (las solicitan aparte; ver README)
+yolo/images/
+
+# temporales
+_stats.json
+*.tmp
+.DS_Store
+Thumbs.db

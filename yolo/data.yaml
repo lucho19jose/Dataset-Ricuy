@@ -1,0 +1,21 @@
+# RICUY dataset - YOLOv8-seg format (instance segmentation, 12 classes)
+# Images are NOT included in this repository (see README). Place the
+# requested .jpg files under images/train and images/val to reproduce.
+path: .
+train: images/train
+val: images/val
+
+nc: 12
+names:
+  0: Reductor de velocidad
+  1: Paso peatonal
+  2: Línea recta
+  3: Línea recta y derecha
+  4: Persona
+  5: Motocicleta
+  6: Automóvil particular
+  7: Camión
+  8: Bus de transporte
+  9: Semáforo en verde
+  10: Semáforo en rojo
+  11: Mototaxi

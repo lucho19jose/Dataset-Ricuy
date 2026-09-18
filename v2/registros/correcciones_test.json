@@ -1,0 +1,26 @@
+[
+ {
+  "clave": "L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00264916ms_f0007950|Reductor de velocidad|1526,659,1614,943",
+  "accion": "borrar",
+  "nuevo": null,
+  "motivo": "el polígono encierra la señal vertical de resalto y su poste, no un resalto"
+ },
+ {
+  "clave": "L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00289908ms_f0008700|Reductor de velocidad|1155,929,1200,966",
+  "accion": "reetiquetar",
+  "nuevo": "Automóvil particular",
+  "motivo": "el polígono encierra una camioneta"
+ },
+ {
+  "clave": "L_20260607_11_Av_Naranjal_12min_1_6GB_t00714774ms_f0021450|Semáforo en verde|1629,292,1758,345",
+  "accion": "borrar",
+  "nuevo": null,
+  "motivo": "duplicado exacto de la misma cabeza de semáforo"
+ },
+ {
+  "clave": "A_video_Andahuaylas_2_0001|Semáforo en verde|563,236,586,246",
+  "accion": "borrar",
+  "nuevo": null,
+  "motivo": "duplicado parcial de la misma cabeza; se conserva la cabeza completa"
+ }
+]

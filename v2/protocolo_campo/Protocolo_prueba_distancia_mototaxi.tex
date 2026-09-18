@@ -1,0 +1,137 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{mathptmx}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\setlist{itemsep=1pt,topsep=2pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{empty}
+
+\begin{document}
+\sloppy
+
+{\Large\bfseries Prueba de distancia desde la mototaxi}\\[2pt]
+{\large RICUY, revisión R1. Para Oscar, Mario y Paul}\\[2pt]
+Fecha: viernes 19 o sábado 20 de septiembre (no dejarlo para el domingo 21). Tiempo en campo: unas 2 horas.
+
+\medskip
+\textbf{Para qué sirve.} RICUY estima a qué distancia está cada peatón o vehículo con el modelo de cámara
+estenopeica (pinhole). En el paper enviado esa distancia nunca se comparó con una medida real, y el revisor 1
+pidió explicar cómo funciona el sistema en una mototaxi. Esta prueba resuelve las dos cosas: medimos con cinta
+métrica, desde la cámara montada en la mototaxi, cuánto se equivoca la estimación. Lo que hagamos aquí va
+directo a una tabla y una figura del paper.
+
+\section*{Materiales}
+\begin{itemize}
+  \item La mototaxi, el celular y el soporte de ventosa de la foto del montaje.
+  \item Una cinta métrica de 20~m o más (sirven dos de 10~m) y una wincha corta de 5~m.
+  \item Tiza o cinta de embalaje de color para marcar el suelo, y una plomada (una tuerca atada a un hilo).
+  \item El tablero de calibración (\texttt{tablero\_calibracion\_A4.pdf}) impreso \textbf{al 100~\%}, sin
+        ``ajustar a la página'', y pegado sobre un cartón rígido y plano. Con una regla, la barra de control
+        debe medir 100~mm exactos.
+  \item Un segundo celular con una app de nivel (inclinómetro).
+  \item Tres voluntarios de estatura distinta, una persona que maneja la cámara y otra que anota.
+  \item Un auto y otra mototaxi estacionados, a los que se les pueda medir la altura.
+  \item La planilla \texttt{registro\_campo.xlsx}, que ya trae las 32 tomas en orden. Solo hay que llenar las
+        celdas amarillas.
+\end{itemize}
+
+\textbf{Lugar.} Un estacionamiento o una calle plana y recta, con al menos 25~m libres y poco tráfico. De día,
+sin el sol de frente a la cámara. Por seguridad, una persona vigila el tráfico todo el tiempo.
+
+\section*{Paso 0. Clip piloto (jueves 18)}
+Con la configuración del paso 1, graben 10~s de cualquier calle y súbanlo al grupo con el archivo original
+(Drive, nunca por WhatsApp, que lo comprime). Así revisamos resolución, FPS y estabilización antes del día de la
+prueba.
+
+\section*{Paso 1. Configurar la cámara del celular}
+\begin{itemize}
+  \item Cámara trasera principal, zoom 1$\times$. Nada de gran angular 0.5$\times$ ni de 2$\times$.
+  \item Video 1080p (1920$\times$1080) a 30~FPS.
+  \item Apagar la estabilización de video, el HDR de video, el encuadre automático y los filtros.
+  \item Si la app lo permite, bloquear enfoque y exposición (mantener el dedo sobre un punto lejano).
+  \item No tocar el zoom ni la configuración hasta terminar. Anotar la marca y el modelo del celular.
+\end{itemize}
+
+\section*{Paso 2. Montar y medir}
+\begin{enumerate}
+  \item Estacionar la mototaxi en el tramo plano, mirando a lo largo de él.
+  \item Poner el celular en el soporte, al centro del parabrisas y en horizontal, igual que en la foto.
+  \item \textbf{Altura $h_\mathrm{cam}$}: con la cinta vertical, medir del suelo al centro del lente. Anotar en cm.
+  \item \textbf{Inclinación}: apoyar el segundo celular con la app de nivel sobre el dorso del celular montado y
+        anotar los grados (positivo si apunta hacia arriba, negativo hacia abajo).
+  \item Colgar la plomada desde el lente hasta el suelo y marcar ahí una cruz con tiza. Ese es el
+        \textbf{punto cero}: todas las distancias se miden desde él.
+  \item Desde el cero, trazar con tiza una línea recta en la dirección en que mira la cámara. Ese es el
+        \textbf{eje}. Sobre él, marcar con la cinta las distancias 3, 4, 5, 7, 8, 10, 15 y 20~m.
+  \item Tomar una foto del montaje con la cinta de la altura visible.
+\end{enumerate}
+\textcolor{red!70!black}{\textbf{Desde aquí no se mueve ni el celular ni el soporte hasta terminar.}} Si algo se
+mueve, hay que volver a medir la altura y la inclinación y anotarlo.
+
+\section*{Paso 3. Calibración (tomas 1 y 2)}
+\begin{itemize}
+  \item \textbf{Tablero}: una persona lo sostiene frente a la cámara, entre 1 y 3~m, y lo mueve despacio durante
+        30 a 40~s. Lo inclina a los lados, arriba y abajo, lo acerca, lo aleja y lo lleva a las esquinas de la
+        imagen. El tablero debe verse completo, nítido y sin reflejos.
+  \item \textbf{Marca a 8~m}: se pega una cruz de cinta de color sobre el eje a 8.00~m y se graban 5~s sin nadie
+        en la imagen. Luego se retira.
+\end{itemize}
+
+\section*{Paso 4. Personas (tomas 3 a 25)}
+\begin{itemize}
+  \item Medir la estatura de cada voluntario \textbf{con zapatos}, de espaldas a una pared, y anotarla en la
+        hoja ``Estaturas''.
+  \item Para cada persona y cada distancia (3, 4, 5, 7, 10, 15 y 20~m): la punta de los pies sobre la marca, de
+        pie, derecho, mirando a la cámara, con los brazos al costado. \textbf{Solo esa persona en la imagen}; los
+        demás se quedan fuera de cuadro.
+  \item Al empezar cada toma se dice en voz alta, por ejemplo, ``persona dos, siete metros'', y se graban 5~s.
+        Si a 3~m los pies salen del cuadro, igual se graba: también es un resultado.
+  \item \textbf{Desplazamiento lateral}: la persona 1 se para a 5~m y a 10~m, pero 1.5~m a la derecha del eje.
+        El ángulo recto se saca con la escuadra 3-4-5 (30, 40 y 50~cm con la cinta).
+\end{itemize}
+
+\section*{Paso 5. Vehículos (tomas 26 a 31)}
+Medir la altura real del auto y de la otra mototaxi, desde el suelo hasta el punto más alto del techo. Luego se
+estaciona cada vehículo sobre el eje, de espaldas a la cámara: el auto con su parachoques trasero a 5, 10 y 15~m,
+y la mototaxi con su parte trasera a 5 y 10~m. 5~s por toma, cantando la distancia. Si en el tramo hay un reductor
+o un paso peatonal, se mide la distancia del cero a su borde más cercano y se graban 5~s.
+
+\section*{Paso 6. Recorrido natural (toma 32)}
+Sin tocar el celular, se graba un recorrido normal de 5 a 10~minutos en la mototaxi por calles con peatones,
+reductores y semáforos. Se conduce con normalidad y con cuidado: nadie actúa ni provoca situaciones. Este video
+\textbf{no se usa para entrenar}; sirve para probar el sistema completo en condiciones reales.
+
+\section*{Paso 7. Entrega (el mismo día)}
+\begin{itemize}
+  \item Subir a Drive los videos \textbf{originales}, la planilla llena y las fotos del montaje.
+  \item Cuando les enviemos el modelo nuevo, correr la app RICUY sobre el video del paso 6, exportar su CSV y
+        guardar de 4 a 6 capturas de pantalla.
+\end{itemize}
+
+\section*{Antes de las capturas: arreglos pendientes en la app}
+\begin{itemize}
+  \item El título de la ventana dice ``Lima, Ica y Ayacucho'': debe decir ``Lima y Andahuaylas''.
+  \item Quitar la insignia ``Ayacucho, Perú 2025''.
+  \item Las tildes salen como cuadros (``Sem\,$\square$\,foro''). \texttt{cv2.putText} no dibuja tildes; hay que
+        escribir el texto con PIL (\texttt{ImageDraw.text}) y una fuente como DejaVu Sans o Segoe UI.
+\end{itemize}
+
+\section*{Tres preguntas sobre la app (respuesta por el grupo)}
+\begin{enumerate}
+  \item ¿A qué tamaño de imagen infiere el modelo (\texttt{imgsz}: 640, 1024...)?
+  \item La altura de la caja $h_\mathrm{px}$, ¿se mide en el frame original de 1920$\times$1080 o en la imagen
+        redimensionada?
+  \item ¿Qué valores usa hoy para $f$, $\theta$ y la altura de cámara?
+\end{enumerate}
+
+\textit{Privacidad}: los voluntarios dan su consentimiento para aparecer en los videos. En las figuras del paper
+se difuminan rostros y placas.
+
+\end{document}

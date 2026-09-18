@@ -1,0 +1,108 @@
+uid,shape_idx,antes,despues,motivo
+M_reductor_t30m25_26s,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+M_reductor_t30m26_22s,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+M_semaforo_t35m12_17s,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+P_flechaRectaDerecha_semaforo_flechaRecta_t35m21_70s,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+P_flechaRectaDerecha_semaforo_t23m17_86s,0,Semáforo en rojo,(enmascarado),caja de pórtico sin arreglo: región en gris
+P_flechaRectaDerecha_semaforo_t23m23_99s,5,Semáforo en rojo,(enmascarado),caja de pórtico sin arreglo: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00054983ms_f0001650,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00054983ms_f0001650,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00059982ms_f0001800,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00059982ms_f0001800,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00064980ms_f0001950,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00064980ms_f0001950,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00069979ms_f0002100,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00074978ms_f0002250,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00074978ms_f0002250,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00079976ms_f0002400,-1,Semáforo en rojo,3 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00079976ms_f0002400,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00084975ms_f0002550,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00084975ms_f0002550,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00089973ms_f0002700,-1,Semáforo en rojo,3 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00094972ms_f0002850,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00094972ms_f0002850,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00094972ms_f0002850,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00099970ms_f0003000,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00099970ms_f0003000,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00104969ms_f0003150,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00104969ms_f0003150,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00109967ms_f0003300,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00109967ms_f0003300,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00109967ms_f0003300,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00114966ms_f0003450,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00114966ms_f0003450,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00114966ms_f0003450,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00114966ms_f0003450,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00119964ms_f0003600,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00124963ms_f0003750,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00129961ms_f0003900,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00129961ms_f0003900,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00134960ms_f0004050,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00134960ms_f0004050,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00134960ms_f0004050,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00139958ms_f0004200,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00144957ms_f0004350,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00149956ms_f0004500,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00179947ms_f0005400,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00184945ms_f0005550,-1,Semáforo en rojo,3 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00189944ms_f0005700,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00189944ms_f0005700,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00194942ms_f0005850,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00194942ms_f0005850,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00194942ms_f0005850,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00194942ms_f0005850,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00204939ms_f0006150,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00209938ms_f0006300,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00214937ms_f0006450,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00214937ms_f0006450,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00219935ms_f0006600,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00224934ms_f0006750,-1,Semáforo en rojo,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00239929ms_f0007200,-1,Semáforo en verde,3 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00239929ms_f0007200,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00244928ms_f0007350,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00249926ms_f0007500,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00279917ms_f0008400,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00294913ms_f0008850,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_08_Av_Eyzaguirre_24min_3_1GB_t00294913ms_f0008850,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00169946ms_f0005100,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00169946ms_f0005100,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00169946ms_f0005100,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00169946ms_f0005100,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00169946ms_f0005100,-1,Semáforo en verde,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00264916ms_f0007950,-1,Reductor de velocidad,(borrado),"el polígono encierra la señal vertical de resalto y su poste, no un resalto"
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00284910ms_f0008550,-1,(sin anotar),Paso peatonal,candidato aceptado: cebra nítida
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00289908ms_f0008700,-1,Reductor de velocidad,Automóvil particular,el polígono encierra una camioneta
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00299905ms_f0009000,-1,(sin anotar),Reductor de velocidad,"candidato aceptado: banda pintada del resalto, con señal de advertencia de resalto al costado"
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00449858ms_f0013500,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00449858ms_f0013500,-1,(sin anotar),Paso peatonal,candidato aceptado: cebra nítida
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00459854ms_f0013800,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00459854ms_f0013800,-1,(sin anotar),Paso peatonal,candidato aceptado: cebra nítida
+L_20260607_10_Av_Alisos_C_15min_1_95_GB_t00474850ms_f0014250,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00214932ms_f0006450,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00219930ms_f0006600,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00224929ms_f0006750,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00244922ms_f0007350,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00254919ms_f0007650,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00259918ms_f0007800,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00259918ms_f0007800,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00269914ms_f0008100,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00274913ms_f0008250,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00289908ms_f0008700,-1,Semáforo en verde,3 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00289908ms_f0008700,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00299905ms_f0009000,-1,Semáforo en verde,4 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00474850ms_f0014250,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00619804ms_f0018600,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00619804ms_f0018600,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00679785ms_f0020400,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00694780ms_f0020850,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00694780ms_f0020850,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00699779ms_f0021000,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00704777ms_f0021150,-1,Semáforo en rojo,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00704777ms_f0021150,-1,Semáforo en rojo,1 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00709776ms_f0021300,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00714774ms_f0021450,-1,Semáforo en verde,3 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+L_20260607_11_Av_Naranjal_12min_1_6GB_t00714774ms_f0021450,-1,Semáforo en verde,(borrado),duplicado exacto de la misma cabeza de semáforo
+A_video_Andahuaylas_2_0001,-1,Semáforo en verde,2 cabezas,semáforo anotado como pórtico: reemplazado por cabezas
+A_video_Andahuaylas_2_0001,-1,Semáforo en verde,(borrado),duplicado parcial de la misma cabeza; se conserva la cabeza completa
+A_video_Andahuaylas_3_0004,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris
+A_video_Andahuaylas_3_0006,-1,Semáforo en verde,(enmascarado),semáforo sin cabeza identificable: región en gris

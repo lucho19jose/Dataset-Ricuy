@@ -1,94 +1,58 @@
-# Dataset RICUY — Anotaciones de tráfico urbano (Lima)
+# Dataset RICUY: anotaciones de tráfico urbano (Lima y Andahuaylas)
 
-Anotaciones de **segmentación de instancias** de actores y señalización de
-tráfico en vías urbanas de Lima, Perú. Este conjunto es el subconjunto curado
-empleado en el estudio de transferencia Ayacucho→Lima del sistema **RICUY**
-(ADAS basado en YOLOv8L-seg).
+Anotaciones de **segmentación de instancias** de actores y señalización de tráfico en vías urbanas de Lima y
+Andahuaylas (Perú), usadas en el sistema de asistencia al conductor **RICUY** (YOLOv8l-seg, 12 clases).
 
-> **⚠️ Este repositorio contiene SOLO las anotaciones, no las imágenes.**
-> Las imágenes provienen de grabaciones de cámara de tablero en vías públicas y
-> contienen rostros de peatones y placas vehiculares. Por motivos de
-> **protección de datos**, no se publican en abierto. Consulta
-> [«Cómo solicitar las imágenes»](#cómo-solicitar-las-imágenes).
+> **Este repositorio contiene solo anotaciones, no imágenes.** Las imágenes provienen de grabaciones en vías
+> públicas y contienen rostros y placas; se comparten bajo solicitud para uso académico
+> (ver [Cómo solicitar las imágenes](#cómo-solicitar-las-imágenes)). Las capturas de Google Street View usadas en
+> la investigación no se publican en ninguna forma.
 
----
+## Versiones
 
-## Contenido
+| Carpeta | Versión | Uso |
+|---|---|---|
+| [`v2/`](v2/) | **Versión corregida (septiembre de 2026)** | Artículo corregido tras la revisión por pares. Partición por grupos, recolección dirigida, programas y resultados. **Usar esta.** |
+| `labelme/`, `yolo/` (raíz) | Versión 1 (junio de 2026) | Envío original: 253 imágenes con partición aleatoria 80/20 (semilla 42). Se conserva solo como registro. |
 
-```
-Dataset-Ricuy/
-├── labelme/                # Anotaciones originales LabelMe (.json)
-│   ├── train/  (204 archivos)
-│   └── val/    ( 49 archivos)
-├── yolo/                    # Anotaciones exportadas a formato YOLOv8-seg
-│   ├── data.yaml           # esquema de 12 clases + rutas (relativas)
-│   └── labels/
-│       ├── train/ (204 .txt)
-│       └── val/   ( 49 .txt)
-├── CLASSES.md               # Esquema oficial de clases y sinónimos LabelMe
-├── LICENSE                  # CC BY 4.0 (solo anotaciones)
-└── README.md
-```
+La versión 1 tenía dos problemas que la versión 2 corrige: la partición aleatoria dejaba fotogramas vecinos de un
+mismo video en entrenamiento y validación, y los semáforos estaban anotados con dos convenciones (cabeza o pórtico
+completo). Los detalles están en [`v2/README.md`](v2/README.md).
 
-- **253 imágenes anotadas** (split determinista 80/20, *seed* = 42):
-  **204 entrenamiento / 49 validación**.
-- **2230 instancias** anotadas (2508 polígonos y 31 rectángulos en el origen
-  LabelMe; predominan los polígonos de segmentación).
-- **12 clases** (3 de ellas con muy pocos o cero ejemplos; ver tabla).
-- Los `.json` de LabelMe se publican con el campo `imageData` vaciado
-  (`null`): **no incrustan la imagen**.
+## Esquema de clases
 
-## Esquema de clases e instancias (subconjunto de 253)
+El orden de identificadores es el del modelo base (QHAWAY) y no debe alterarse. Las clases 2 y 3 son las
+**flechas direccionales pintadas** en la calzada, no las líneas que separan carriles.
 
-| ID | Clase (oficial) | Sinónimo LabelMe | Instancias |
-|---:|------------------|------------------|-----------:|
-| 6 | Automóvil particular | Automóvil particular | 1184 |
-| 4 | Persona | Persona | 454 |
-| 8 | Bus de transporte | Autobús | 236 |
-| 11 | Mototaxi | Mototaxi | 90 |
-| 10 | Semáforo en rojo | Semáforo en rojo | 69 |
-| 7 | Camión | Camión | 58 |
-| 5 | Motocicleta | Motocicleta | 51 |
-| 9 | Semáforo en verde | Semáforo en verde | 48 |
-| 1 | Paso peatonal | Cruce peatonal | 33 |
-| 2 | Línea recta | Línea recta | 4 |
-| 0 | Reductor de velocidad | Tope de velocidad | 3 |
-| 3 | Línea recta y derecha | Línea recta a la derecha | 0 |
+| ID | Clase | ID | Clase |
+|---:|---|---:|---|
+| 0 | Reductor de velocidad | 6 | Automóvil particular |
+| 1 | Paso peatonal | 7 | Camión |
+| 2 | Línea recta (flecha recta) | 8 | Bus de transporte |
+| 3 | Línea recta y derecha (flecha recta y derecha) | 9 | Semáforo en verde |
+| 4 | Persona | 10 | Semáforo en rojo |
+| 5 | Motocicleta | 11 | Mototaxi |
 
-El orden de IDs sigue el esquema oficial del modelo base (no alterar). Detalle
-completo en [`CLASSES.md`](CLASSES.md).
-
-## Cómo reproducir el split YOLO
-
-1. Solicita las imágenes (ver abajo) y colócalas en:
-   `yolo/images/train/` y `yolo/images/val/` (mismos nombres base que los `.txt`).
-2. Entrena con `yolo/data.yaml` (Ultralytics ≥ 8.x), por ejemplo:
-   ```bash
-   yolo segment train data=yolo/data.yaml model=yolov8l-seg.pt imgsz=640
-   ```
+Sinónimos de LabelMe aceptados en [`CLASSES.md`](CLASSES.md).
 
 ## Cómo solicitar las imágenes
 
-Las imágenes se comparten **bajo solicitud, para uso académico/de investigación**,
-previo compromiso de tratamiento responsable de datos personales (no
-redistribución, anonimización en publicaciones).
+Las imágenes se comparten **bajo solicitud, para uso académico o de investigación**, con el compromiso de no
+redistribuirlas y de anonimizar rostros y placas en cualquier publicación. Abre un *issue* en este repositorio
+describiendo tu afiliación y el uso previsto, o escribe al autor de correspondencia:
+**barbozagonzalesjose@gmail.com**.
 
-- **Abre un *Issue*** en este repositorio describiendo tu afiliación y el uso
-  previsto, **o**
-- Escribe al autor de correspondencia: **barbozagonzalesjose@gmail.com**.
+El punto de control del modelo base (QHAWAY, YOLOv8l-seg) debe solicitarse a sus autores (De la Cruz et al.,
+*Sensors* 2026, 26, 2569, doi: 10.3390/s26082569). Su huella MD5 es `2def426c0820750fae575bab517464f2`.
 
 ## Cita
 
-Si utilizas estas anotaciones, por favor cita el artículo asociado:
-
-> Barboza, Ruiz, Tenorio, Yufra, Salas. *RICUY: Sistema Inteligente de
-> Asistencia al Conductor en vías urbanas de Lima, Andahuaylas y Ayacucho*.
-> Universidad Nacional de Ingeniería (UNI), 2026. *(completar datos de
-> publicación / DOI cuando estén disponibles).*
+> Barboza Gonzales, J. L.; Tenorio Huarancca, D. O.; Ruiz Crisostomo, P. V.; Yufra Chambilla, M.;
+> Salas Vizcarra, O. *RICUY: Sistema Inteligente de Asistencia al Conductor en Vías Urbanas de Lima y
+> Andahuaylas*. Journal of Artificial Intelligence for Engineering Solutions, Escuela de Posgrado UNI, 2026
+> (en revisión).
 
 ## Licencia
 
-Las **anotaciones** de este repositorio se distribuyen bajo
-[Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE).
-Las **imágenes** no están cubiertas por esta licencia y se rigen por el proceso
-de solicitud descrito arriba.
+Las **anotaciones** se distribuyen bajo [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE). Las imágenes no
+están cubiertas por esta licencia.

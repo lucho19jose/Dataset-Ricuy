@@ -1,0 +1,27 @@
+{
+ "video": "test_sinSV.txt",
+ "resolucion": "1920x1080",
+ "n_fotogramas": 400,
+ "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+ "imgsz": 640,
+ "FP32": {
+  "pre_ms": 1.2242167505610269,
+  "inferencia_ms": 30.969090750004398,
+  "post_ms": 1.8806640004913788,
+  "total_ms": 34.0739715010568,
+  "p95_ms": 35.94503000640543,
+  "fps": 29.347914432838714,
+  "con_seguimiento_ms": 35.58555424999213,
+  "con_seguimiento_fps": 28.101290567933788
+ },
+ "FP16": {
+  "pre_ms": 1.1388609994173748,
+  "inferencia_ms": 18.48387750062102,
+  "post_ms": 1.8293170000833925,
+  "total_ms": 21.452055500121787,
+  "p95_ms": 23.34754997718846,
+  "fps": 46.61557956505953,
+  "con_seguimiento_ms": 23.092464500005008,
+  "con_seguimiento_fps": 43.30416963506789
+ }
+}

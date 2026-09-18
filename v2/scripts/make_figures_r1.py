@@ -65,7 +65,7 @@ def arquitectura():
     w, h, gap = 3.75, 1.35, 0.9
     xs = [0.2 + i * (w + gap) for i in range(4)]
     y1, y2 = 2.75, 0.35
-    row1 = [("Video del celular\n1920×1080 a 30 FPS", "#e8f0fb"), ("YOLOv8l-seg\n12 clases, 640 px", "#e8f0fb"),
+    row1 = [("Video del celular\n1920×1080 a 30 FPS", "#e8f0fb"), ("YOLOv8l-seg\n12 clases, 1024 px", "#e8f0fb"),
             ("ByteTrack\nidentidad por objeto", "#e8f0fb"), ("Distancia $D$\nEc. (1) y Ec. (2)", "#e9f6f0")]
     for x, (t, c) in zip(xs, row1):
         _box(ax, x, y1, w, h, t, c)

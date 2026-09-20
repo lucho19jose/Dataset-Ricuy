@@ -47,6 +47,27 @@ def save(fig, name, engine=True):
     print("->", os.path.relpath(path, BASE))
 
 
+def jpeg_pdf(ruta_png, dpi=300, calidad=92):
+    """Envuelve una imagen raster en un PDF con compresión JPEG, al tamaño con que se imprimirá.
+    Las fotografías en PNG pesan varios MB y el artículo se envía por correo; el PDF resultante conserva
+    la resolución y ocupa la quinta parte. La guía de autores admite figuras .png o .pdf."""
+    import cv2, fitz
+    img = cv2.imdecode(np.fromfile(ruta_png, dtype=np.uint8), cv2.IMREAD_COLOR)  # la ruta lleva tildes
+    ok, buf = cv2.imencode(".jpg", img, [int(cv2.IMWRITE_JPEG_QUALITY), calidad])
+    if not ok:
+        raise RuntimeError("no se pudo comprimir " + ruta_png)
+    h, w = img.shape[:2]
+    ancho_pt, alto_pt = w * 72 / dpi, h * 72 / dpi
+    doc = fitz.open()
+    pagina = doc.new_page(width=ancho_pt, height=alto_pt)
+    pagina.insert_image(fitz.Rect(0, 0, ancho_pt, alto_pt), stream=buf.tobytes())
+    destino = os.path.splitext(ruta_png)[0] + ".pdf"
+    doc.save(destino, deflate=True)
+    doc.close()
+    print("->", os.path.relpath(destino, BASE), f"{os.path.getsize(destino)//1024} KB")
+    return destino
+
+
 # ------------------------------------------------------------------ arquitectura
 def _box(ax, x, y, w, h, txt, fc):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02,rounding_size=0.12", fc=fc, ec=INK2, lw=0.7))
@@ -360,12 +381,96 @@ def ejemplos(n=3, device="cpu"):
     path = os.path.join(OUT, "fig_ejemplos.png")
     canvas.save(path, dpi=(300, 300))
     print("->", os.path.relpath(path, BASE), [r["uid"] for r in chosen])
+    jpeg_pdf(path)
 
 
 VEHICULOS = {"Automóvil particular", "Camión", "Bus de transporte", "Mototaxi", "Motocicleta"}
 TINY = {0: "reductor", 1: "paso", 2: "recta", 3: "recta y der."}
 LEG = {0: "Reductor", 1: "Paso peatonal", 2: "Flecha recta", 3: "Flecha recta y derecha"}
 SHORT_ID = {"Reductor de velocidad": 0, "Paso peatonal": 1, "Línea recta": 2, "Línea recta y derecha": 3}
+
+
+# ------------------------------------------------------------------ escenas completas con E2 (todas las clases)
+PAL12 = {0: (235, 104, 52), 1: (27, 175, 122), 2: (42, 120, 214), 3: (237, 161, 0), 4: (0, 178, 202),
+         5: (150, 100, 200), 6: (46, 204, 113), 7: (140, 90, 40), 8: (0, 120, 140), 9: (11, 120, 62),
+         10: (220, 40, 40), 11: (250, 140, 40)}
+CIUDAD = {"L": "Lima", "M": "Lima", "O": "Lima", "A": "Andahuaylas"}
+
+
+def escenas(device="cpu"):
+    """Cuatro escenas de la prueba principal (dos de Lima y dos de Andahuaylas) con las predicciones de E2 en
+    las 12 clases. Se elige, por ciudad, la imagen con más instancias anotadas de cada grupo, sin mirar las
+    predicciones. Rostros y placas cercanas difuminados."""
+    from ultralytics import YOLO
+    from PIL import ImageFilter
+    filas = [r for r in csv.DictReader(open(MANIFEST, encoding="utf-8")) if r["split"] == "test" and r["fuente"] != "SV"]
+    for r in filas:
+        r["_n"] = sum(int(r[f"c{k}"]) for k in range(12))
+    elegidas, grupos = [], set()
+    for ciudad in ("Lima", "Andahuaylas"):
+        cand = sorted([r for r in filas if CIUDAD[r["fuente"]] == ciudad], key=lambda r: (-r["_n"], r["uid"]))
+        n = 0
+        for r in cand:
+            if r["grupo"] in grupos:
+                continue
+            elegidas.append(r); grupos.add(r["grupo"]); n += 1
+            if n == 2:
+                break
+    modelo = YOLO(os.path.join(HERE, "runs", "r1", "E2_s0", "weights", "last.pt"))
+    W = int(18 / 2.54 * 300); gap = 16; leyenda_h = 52; pie_h = 44
+    tile_w = (W - gap) // 2; tile_h = int(tile_w * 9 / 16)
+    lienzo = Image.new("RGB", (W, leyenda_h + 2 * (tile_h + pie_h)), "white")
+    td = ImageDraw.Draw(lienzo)
+    try:
+        font = ImageFont.truetype("times.ttf", 30); fontb = ImageFont.truetype("timesbd.ttf", 30)
+    except OSError:
+        font = fontb = ImageFont.load_default()
+    presentes = []
+    for j, r in enumerate(elegidas):
+        ruta = os.path.join(HERE, "dataset_v2", "images", r["archivo"])
+        im = Image.open(ruta).convert("RGB")
+        res = modelo.predict(ruta, imgsz=640, conf=0.5, verbose=False, device=device, retina_masks=True)[0]
+        P = []
+        if res.masks is not None:
+            for poly, b, c, cf in zip(res.masks.xy, res.boxes.xyxy.tolist(), res.boxes.cls.tolist(),
+                                      res.boxes.conf.tolist()):
+                P.append((int(c), b, poly, float(cf)))
+        d = json.load(open(os.path.join(HERE, "dataset_v2", "unified_json", r["uid"] + ".json"), encoding="utf-8"))
+        cabezas = [b for c, b, _, _ in P if c == 4]
+        for sh in d["shapes"]:
+            xs, ys = zip(*sh["points"]); bb = [min(xs), min(ys), max(xs), max(ys)]
+            if sh["label"] == "Persona":
+                cabezas.append(bb)
+            if sh["label"] in VEHICULOS and bb[2] - bb[0] > 150:
+                w_, h_ = bb[2] - bb[0], bb[3] - bb[1]
+                pb = (int(bb[0] + 0.2 * w_), int(bb[1] + 0.5 * h_), int(bb[0] + 0.8 * w_), int(bb[1] + 0.9 * h_))
+                im.paste(im.crop(pb).filter(ImageFilter.GaussianBlur(7)), pb[:2])
+        for b in cabezas:
+            hb = (int(b[0]), int(b[1]), int(b[2]) + 1, int(b[1] + 0.32 * (b[3] - b[1])) + 1)
+            if hb[2] > hb[0] and hb[3] > hb[1]:
+                im.paste(im.crop(hb).filter(ImageFilter.GaussianBlur(10)), hb[:2])
+        ov = Image.new("RGBA", im.size, (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
+        for c, b, poly, cf in sorted(P, key=lambda t: -(t[1][2] - t[1][0]) * (t[1][3] - t[1][1])):
+            if len(poly) >= 3:
+                od.polygon([tuple(pt) for pt in poly], fill=PAL12[c] + (110,), outline=PAL12[c] + (255,))
+                presentes.append(c)
+        tile = Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB").resize((tile_w, tile_h), Image.LANCZOS)
+        X = (j % 2) * (tile_w + gap); Y = leyenda_h + (j // 2) * (tile_h + pie_h)
+        lienzo.paste(tile, (X, Y))
+        cuenta = collections.Counter(c for c, _, _, _ in P)
+        resumen = ", ".join(f"{SHORT[k].lower()} {cuenta[k]}" for k in sorted(cuenta))
+        td.text((X + 4, Y + tile_h + 6), f"({'abcd'[j]}) {CIUDAD[r['fuente']]}: {resumen}", fill=(10, 10, 10), font=font)
+    lx, ly = 4, 10
+    for k in sorted(set(presentes)):
+        td.rectangle((lx, ly, lx + 26, ly + 26), fill=PAL12[k])
+        td.text((lx + 34, ly - 2), SHORT[k], fill=(10, 10, 10), font=font)
+        lx += 34 + int(td.textlength(SHORT[k], font=font)) + 34
+        if lx > W - 300:
+            lx, ly = 4, ly + 0
+    ruta = os.path.join(OUT, "fig_e2_escenas.png")
+    lienzo.save(ruta, dpi=(300, 300))
+    print("->", os.path.relpath(ruta, BASE), [r["uid"] for r in elegidas])
+    jpeg_pdf(ruta)
 
 
 # ------------------------------------------------------------------ sensibilidad de la distancia (presupuesto de error)
@@ -413,6 +518,21 @@ def sensibilidad():
         grid = np.linspace(1, 25, 2401)
         cross = grid[np.argmin(np.abs([s1_at(g) - s2_at(g, sd) for g in grid]))]
         print(f"cruce Ec1=Ec2 con inclinación ±{sd}°: {cross:.1f} m")
+    # las mismas cifras como macros \cf para el texto del artículo
+    claves = {}
+    for d in (3, 7, 20):
+        claves[f"sens@ec1@{d}"] = f"{s1_at(d):.2f}"
+        for sd, tag in ((1.0, "10"), (0.5, "05")):
+            claves[f"sens@ec2@{d}@{tag}"] = f"{s2_at(d, sd):.2f}"
+    for sd, tag in ((1.0, "10"), (0.5, "05")):
+        grid = np.linspace(1, 25, 2401)
+        claves[f"sens@cruce@{tag}"] = "%.1f" % grid[np.argmin(np.abs([s1_at(g) - s2_at(g, sd) for g in grid]))]
+    dest = os.path.join(BASE, "RICUY_ADAS_UNI_2026_R1", "tablas", "cifras_sens.tex")
+    with open(dest, "w", encoding="utf-8") as fh:
+        fh.write("% Generado por make_figures_r1.py sensibilidad. Presupuesto de error de la distancia.\n")
+        for k, v in claves.items():
+            fh.write("\\expandafter\\def\\csname cf@%s\\endcsname{%s}\n" % (k, v))
+    print("->", os.path.relpath(dest, BASE))
 
 
 # ------------------------------------------------------------------ resumen de confusión (legible a una columna)
@@ -454,7 +574,7 @@ def confusion(name="E2_s0_test_sinSV"):
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "todas"
     fns = dict(arquitectura=arquitectura, pinhole=pinhole, montaje=montaje, distribucion=distribucion,
-               ap_clase=ap_por_clase, confusion=confusion, sensibilidad=sensibilidad, ejemplos=ejemplos)
+               ap_clase=ap_por_clase, confusion=confusion, sensibilidad=sensibilidad, ejemplos=ejemplos, escenas=escenas)
     for k, fn in fns.items():
         if which in (k, "todas"):
             fn()
